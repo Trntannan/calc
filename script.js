@@ -93,3 +93,5 @@ document.getElementById("backspace").addEventListener("click", function() {
   deleteLastEntry();
   updateDisplay(); 
 });
+
+

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="main.css">
-      <title>calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>calculator</title>
   </head>
   <body class="dark-mode">    
     <div class="calculator">
@@ -14,7 +14,7 @@
         </div>
         <div>
           <input type="button" value="AC" id="clearButton" onclick="clearDisplay()" class="operator orange">
-          <input type="button" value="DE" id="backspace" onclick="display.value = display.value.toString().slice(0,-1)" class="operator orange">
+          <input type="button" value="DE" id="backspace" onclick="deleteLastEntry()" class="operator orange">
           <input type="button" value="%" onclick="display.value += '%' " class="operator orange">          
           <input type="button" value="/" onclick="display.value += '/' " class="operator orange">
         </div>
