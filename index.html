@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="main.css">
+      <title>calculator</title>
+  </head>
+  <body class="dark-mode">    
+    <div class="calculator">
+      <form>
+        <div class="screen">
+          <input id="display" type="text">
+        </div>
+        <div>
+          <input type="button" value="AC" id="clearButton" onclick="clearDisplay()" class="operator orange">
+          <input type="button" value="DE" id="backspace" onclick="display.value = display.value.toString().slice(0,-1)" class="operator orange">
+          <input type="button" value="%" onclick="display.value += '%' " class="operator orange">          
+          <input type="button" value="/" onclick="display.value += '/' " class="operator orange">
+        </div>
+        <div>
+          <input type="button" value="7" onclick="display.value += '7' " class="numb">
+          <input type="button" value="8" onclick="display.value += '8' " class="numb">
+          <input type="button" value="9" onclick="display.value += '9' " class="numb">
+          <input type="button" value="*" onclick="display.value += '*' " class="operator orange">
+        </div>
+        <div>
+          <input type="button" value="4" onclick="display.value += '4' " class="numb">
+          <input type="button" value="5" onclick="display.value += '5' " class="numb">
+          <input type="button" value="6" onclick="display.value += '6' " class="numb">
+          <input type="button" value="-" onclick="display.value += '-' " class="operator orange">
+        </div>
+        <div>
+          <input type="button" value="1" onclick="display.value += '1' " class="numb">
+          <input type="button" value="2" onclick="display.value += '2' " class="numb">
+          <input type="button" value="3" onclick="display.value += '3' " class="numb">
+          <input type="button" value="+" onclick="display.value += '+' " class="operator orange">
+        </div>
+        <div>
+          <input type="button" value="0" onclick="display.value += '0' " class="numb">
+          <input type="button" value="." onclick="display.value += '.' " class="numb">
+          <input type="button" value="=" onclick="calculateResult()" id="equals">
+        </div>            
+      </form>       
+    </div>                                  
+    <script src="./script.js"></script>
+  </body>
+</html>

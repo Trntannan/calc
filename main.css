@@ -1,0 +1,127 @@
+
+body {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    background: #ffb178;
+}
+
+.calculator {
+    display: flex;
+    justify-content: center;
+    background: #2a3a48;
+    padding-bottom: 40px;
+    padding-top: 40px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 60px;
+    margin: 60px;
+}
+
+form > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: stretch; */
+    /* flex-grow: 1; */
+    /* max-height: ; */
+    /* flex-shrink: 1; */
+}
+
+
+.numb, .orange{
+    flex-grow: 1;
+    flex-shrink: 1;
+    border: 0;
+    outline: 0;
+    min-width: 30px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    font-size: 2rem;
+    margin: 10px;
+
+}
+
+#equals {
+    flex-grow: 1;
+    flex-shrink: 1;
+    width: 140px;
+    height: 60px;
+    border-radius: 10px;
+    box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.2);
+    background: #ed802e;
+    font-size: 2.5rem;
+    margin: 10px;
+    color: white;
+}
+
+.screen {
+    /* background-color: #2e3e4d;
+    border-radius:  10px; */
+    margin: 10px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    /* padding-bottom:  10px; */
+    min-height:  50px;
+    max-width: 270vw;
+    /* box-shadow: -2px -2px 5px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.2);  */
+}
+
+#display {
+    /* border: 0;
+    outline: 0; */
+    font-size:  5vw;
+    text-align: right;
+    color: #fff;
+    /* min-height:  30px;  */
+    /* margin-bottom:  10px;  */
+    background-color: transparent;
+}
+
+
+.orange {
+    color: #d6884c;
+}
+
+.numb {
+    color: #77838d;
+}
+
+
+
+.numb:hover, .orange:hover, #equals:hover {
+    box-shadow: 0px 0px 38px 0px rgba(255, 255, 255, 0.157);
+}
+
+
+/* @media (max-width:   600px) {
+    .calculator input {
+        font-size:  1.5rem; 
+        width:  50px; 
+        height:  50px; 
+    }
+    #equals {
+        font-size:  2rem; 
+        width:  120px; 
+        height:  50px; 
+    }
+} */
+
+/* @media (min-width:   1200px) {
+    .calculator input {
+        font-size:  2.5rem; 
+        width:  70px; 
+        height:  70px; 
+    }
+    #equals {
+        font-size:  3rem; 
+        width:  160px; 
+        height:  70px; 
+    }
+} */
+  
