@@ -1,97 +1,87 @@
-const display = document.getElementById("display");
+const calcTyped = document.getElementById("calc-typed");
+const calcResult = document.getElementById("calc-result");
 
-let equation = "0";
+calcTyped.innerText = "0";
+calcResult.innerText = "0";
+
 let firstNumber = null;
 let operator = null;
 let secondNumber = null;
 
-function handleNumber(number) {
-  if (equation === "0") {
-    equation = number;
+function handleNumbers(number) {
+  if (calcTyped.innerText === "0") {
+    calcTyped.innerText = number;
   } else {
-    equation += number;
+    calcTyped.innerText += number;
   }
-  updateDisplay();
 }
 
 function clearDisplay() {
-  equation = "0";
+  calcTyped.innerText = "0";
+  calcResult.innerText = "0";
   firstNumber = null;
   operator = null;
   secondNumber = null;
-  updateDisplay();
 }
 
-function deleteLastEntry() {
-  equation = equation.slice(0, -1); 
+function backspace() {
+  calcTyped.innerText = calcTyped.innerText.slice(0, -1);
+  if (calcTyped.innerText === "") {
+    calcTyped.innerText = "0";
+  }
 }
 
-function updateDisplay() {
-  display.value = equation || "0";
-}
-
-function handleOperator(op) {
+function handleOperators(op) {
   if (operator === null) {
-    firstNumber = parseFloat(equation);
+    firstNumber = parseFloat(calcTyped.innerText);
     operator = op;
-    equation += op;
+    calcTyped.innerText += op;
   } else {
-    equation = equation.slice(0, -2) + op;
+    calcTyped.innerText = calcTyped.innerText.slice(0, -1) + op;
     operator = op;
   }
-  updateDisplay();
 }
 
 function calculateResult() {
   if (operator && firstNumber !== null) {
-    secondNumber = parseFloat(equation.slice(equation.lastIndexOf(operator) + 1));
+    secondNumber = parseFloat(calcTyped.innerText.slice(calcTyped.innerText.lastIndexOf(operator) + 1));
     let result;
-    switch (operator) {
-      case "+":
-        result = firstNumber + secondNumber;
-        break;
-      case "-":
-        result = firstNumber - secondNumber;
-        break;
-      case "*":
-        result = firstNumber * secondNumber;
-        break;
-      case "/":
-        result = firstNumber / secondNumber;
-        break;
-      case "%":
-        result = firstNumber % secondNumber;
-        break;
-      default:
-        result = "Invalid operation";
+
+    if (operator === "+") {
+      result = firstNumber + secondNumber;
+    } else if (operator === "-") {
+      result = firstNumber - secondNumber;
+    } else if (operator === "*") {
+      result = firstNumber * secondNumber;
+    } else if (operator === "/") {
+      result = firstNumber / secondNumber;
+    } else if (operator === "%") {
+      result = firstNumber % secondNumber;
+    } else {
+      result = "Invalid operation";
     }
-    display.value = result;
-    equation = result.toString();
+
+    calcResult.innerText = result;
+    calcResult.innerText = result.toString();
     operator = null;
     firstNumber = null;
     secondNumber = null;
   }
 }
 
-document.querySelectorAll("input").forEach((button) => {
+document.querySelectorAll("input").forEach((button) => { 
   button.addEventListener("click", () => {
     if (button.classList.contains("operator")) {
-      handleOperator(button.value);
+      handleOperators(button.value);
     } else if (button.value === "=") {
       calculateResult();  
+    } else if (button.value === "AC") {
+      clearDisplay();
+    } else if (button.value === "DE") {
+      backspace();
     } else {
-      handleNumber(button.value);
+      handleNumbers(button.value);
     }
   });
 });
-
-document.getElementById("clearButton").addEventListener("click", function() {
-  clearDisplay();
-});
-
-document.getElementById("backspace").addEventListener("click", function() {
-  deleteLastEntry();
-  updateDisplay(); 
-});
-
 
